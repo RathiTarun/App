@@ -4,30 +4,24 @@
     android:layout_height="match_parent"
     android:background="#12091A">
 
-    <!-- BIG Glow (bottom right, pulse) -->
+    <!-- 🔵 BACKGROUND RADIAL FADE -->
     <ImageView
-        android:id="@+id/bigGlow"
-        android:layout_width="480dp"
-        android:layout_height="480dp"
-        android:src="@drawable/big_glow"
-        android:layout_gravity="bottom|end"
-        android:translationX="80dp"
-        android:translationY="120dp"/>
-
-
-    <!-- SMALL Glow (behind orb) -->
-    <ImageView
-        android:id="@+id/smallGlow"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:id="@+id/backgroundRadial"
+        android:layout_width="1000dp"
+        android:layout_height="1000dp"
+        android:src="@drawable/splash_radial_bg"
         android:layout_gravity="center"
-        android:src="@drawable/small_glow"/>
+        android:alpha="0.35" />
 
-    <!-- GLASS ORB + INNER SHAPES -->
+    <!-- 🔵 BIG GLOW (Pulse Animation Applied in Kotlin Only) -->
+
+    <!-- 🔵 SMALL CENTER GLOW -->
+
+    <!-- ⚪ GLASS ORB + INNER SHAPES -->
     <FrameLayout
         android:id="@+id/orbFrame"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_gravity="center">
 
         <!-- Inner Shape 1 -->
@@ -35,41 +29,56 @@
             android:id="@+id/inner1"
             android:layout_width="120dp"
             android:layout_height="60dp"
-            android:translationX="-20dp"
-            android:translationY="20dp"
+            android:translationX="-18dp"
+            android:translationY="18dp"
             android:rotation="30"
-            android:src="@drawable/inner_shape_1"/>
+            android:src="@drawable/inner_shape_1" />
 
         <!-- Inner Shape 2 -->
         <ImageView
             android:id="@+id/inner2"
-            android:layout_width="100dp"
+            android:layout_width="95dp"
             android:layout_height="80dp"
-            android:translationX="25dp"
-            android:translationY="-20dp"
+            android:translationX="26dp"
+            android:translationY="-28dp"
             android:rotation="-45"
-            android:src="@drawable/inner_shape_2"/>
+            android:src="@drawable/inner_shape_2" />
 
         <!-- Glass Orb -->
         <ImageView
             android:id="@+id/glassOrb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/glass_orb"/>
+            android:src="@drawable/glass_orb" />
 
     </FrameLayout>
 
-    <!-- App Name -->
+    <!-- 🔤 APP NAME -->
+
+    <ImageView
+        android:id="@+id/bigGlow"
+        android:layout_width="341dp"
+        android:layout_height="372dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@drawable/big_glow"
+        android:translationY="80dp" />
+
+    <ImageView
+        android:id="@+id/smallGlow"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:src="@drawable/small_glow" />
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="100dp"
-        android:text="SplitSavvy"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        android:layout_marginBottom="110dp"
         android:letterSpacing="0.20"
-        android:textColor="#F0FFFFFF"/>
+        android:text="SplitSavvy"
+        android:textColor="#F0FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
 </FrameLayout>
