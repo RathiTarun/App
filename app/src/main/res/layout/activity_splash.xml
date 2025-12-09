@@ -2,7 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#12091A">
+    android:background="#12091A"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <!-- 🔵 BACKGROUND RADIAL FADE -->
     <ImageView
@@ -22,34 +24,17 @@
         android:id="@+id/orbFrame"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_gravity="center">
-
-        <!-- Inner Shape 1 -->
-        <ImageView
-            android:id="@+id/inner1"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:translationX="-18dp"
-            android:translationY="18dp"
-            android:rotation="30"
-            android:src="@drawable/inner_shape_1" />
-
-        <!-- Inner Shape 2 -->
-        <ImageView
-            android:id="@+id/inner2"
-            android:layout_width="95dp"
-            android:layout_height="80dp"
-            android:translationX="26dp"
-            android:translationY="-28dp"
-            android:rotation="-45"
-            android:src="@drawable/inner_shape_2" />
+        android:layout_gravity="center"
+        android:clipToOutline="false"
+        >
 
         <!-- Glass Orb -->
         <ImageView
             android:id="@+id/glassOrb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/glass_orb" />
+            android:src="@drawable/glass_orb"
+            android:clipToOutline="false"/>
 
     </FrameLayout>
 
@@ -61,14 +46,16 @@
         android:layout_height="372dp"
         android:layout_gravity="bottom|center_horizontal"
         android:src="@drawable/big_glow"
-        android:translationY="80dp" />
+        android:translationY="80dp"
+        android:clipToOutline="false"/>
 
     <ImageView
         android:id="@+id/smallGlow"
         android:layout_width="260dp"
         android:layout_height="260dp"
         android:layout_gravity="center"
-        android:src="@drawable/small_glow" />
+        android:src="@drawable/small_glow"
+        android:clipToOutline="false"/>
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
