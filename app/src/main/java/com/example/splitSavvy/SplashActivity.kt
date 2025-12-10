@@ -1,9 +1,12 @@
 package com.example.splitSavvy
 
+import android.content.Intent
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,5 +32,12 @@ class SplashActivity : AppCompatActivity() {
         val slowPulse = AnimationUtils.loadAnimation(this, R.anim.pulse_glow)
         bigGlow.startAnimation(slowPulse)
 
+        //delay for 2 seconds, then go to LoginActivity
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }, 2000)
+        }
+
     }
-}
