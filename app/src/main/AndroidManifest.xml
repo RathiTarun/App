@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SplitSavvy">
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterStep1Activity"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
