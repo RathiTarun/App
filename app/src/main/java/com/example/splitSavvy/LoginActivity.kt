@@ -47,11 +47,38 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            toast("Logging in…")
+            if(isValidUser(email,password)) {
+                toast("Login Succesful")
+            }else{
+                toast("Invalid email or password")
+                shakeViews(binding.etEmail,binding.etPassword)
+                showInputError()
+
+
         }
+        }
+    }
+    private fun isValidUser(email:String,password:String):Boolean{
+        return email=="test@gmail.com" && password=="test"
     }
 
     private fun toast(msg: String) {
         android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_SHORT).show()
+    }
+
+    private fun shakeViews(vararg views:android.view.View){
+        val shake=android.view.animation.AnimationUtils.loadAnimation(this, R.anim.shake)
+
+        views.forEach { it.startAnimation(shake) }
+    }
+
+    private fun showInputError(){
+        binding.EmailContainer.setBackgroundResource(R.drawable.bg_input_error)
+        binding.PasswordContainer.setBackgroundResource(R.drawable.bg_input_error)
+    }
+
+    private fun clearInputError(){
+        binding.etEmail.setBackgroundResource(R.drawable.bg_input)
+        binding.etPassword.setBackgroundResource(R.drawable.bg_input)
     }
 }
