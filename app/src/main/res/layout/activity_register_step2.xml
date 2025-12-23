@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_main_gradient"
+    android:padding="24dp"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation = "vertical">
+
+
+        <ImageView
+            android:id = "@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_arrow"
+            android:tint ="@color/white"/>
+
+        <TextView
+            android:text="Step 2 of 2"
+            android:textColor="#CCCCCC"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="8dp"
+            android:progress="100"
+            android:progressTint="#3CF142"
+            android:backgroundTint="#333333"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Almost There"
+            android:textColor="@android:color/white"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"/>
+
+        <TextView
+            android:id="@+id/tvQuesNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's your Number"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"/>
+
+        <!--Country Code-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp">
+
+            <!-- Phone Number-->
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Country"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/tvPhoneLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:padding="16dp"
+                app:layout_constraintStart_toEndOf="@id/tvCountryCode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.72"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "8dp">
+        <!-- Country Code-->
+            <TextView
+                android:id="@+id/tvCountryCode"
+                android:layout_width="69dp"
+                android:layout_height="55dp"
+                android:background="@drawable/bg_input"
+                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:text="+91"
+                android:textColor="@android:color/white" />
+        <!-- Phone number input -->
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="209dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="60dp"
+                android:background="@drawable/bg_input"
+                android:hint="(555) 000-0000"
+                android:inputType="phone"
+                android:padding="16dp"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/tvCountryCode"
+                tools:layout_editor_absoluteY="1dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnSendCode"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/bg_btn_login"
+            android:text="Send OTP"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
