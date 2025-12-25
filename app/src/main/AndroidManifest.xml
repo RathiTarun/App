@@ -15,6 +15,8 @@
         <activity android:name=".RegisterStep1Activity"/>
         <activity android:name=".RegisterStep2Activity"/>
         <activity android:name=".OtpVerificationActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".WelcomeActivity"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
