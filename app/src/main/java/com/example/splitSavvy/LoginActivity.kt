@@ -1,5 +1,6 @@
 package com.example.splitSavvy
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
         setupPasswordToggle()
         setupLogin()
+        setupRegistrationRedirect()
     }
 
     private fun setupPasswordToggle() {
@@ -47,38 +49,59 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(isValidUser(email,password)) {
+            if (isValidUser(email, password)) {
                 toast("Login Succesful")
-            }else{
+            } else {
                 toast("Invalid email or password")
-                shakeViews(binding.etEmail,binding.etPassword)
+                shakeViews(binding.etEmail, binding.etPassword)
                 showInputError()
 
 
-        }
+            }
         }
     }
-    private fun isValidUser(email:String,password:String):Boolean{
-        return email=="test@gmail.com" && password=="test"
+
+    private fun isValidUser(email: String, password: String): Boolean {
+        return email == "test@gmail.com" && password == "test"
     }
 
     private fun toast(msg: String) {
         android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_SHORT).show()
     }
 
-    private fun shakeViews(vararg views:android.view.View){
-        val shake=android.view.animation.AnimationUtils.loadAnimation(this, R.anim.shake)
+    private fun shakeViews(vararg views: android.view.View) {
+        val shake = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.shake)
 
         views.forEach { it.startAnimation(shake) }
     }
 
-    private fun showInputError(){
+    private fun showInputError() {
         binding.EmailContainer.setBackgroundResource(R.drawable.bg_input_error)
         binding.PasswordContainer.setBackgroundResource(R.drawable.bg_input_error)
     }
 
-    private fun clearInputError(){
+    private fun clearInputError() {
         binding.etEmail.setBackgroundResource(R.drawable.bg_input)
         binding.etPassword.setBackgroundResource(R.drawable.bg_input)
+    }
+
+    private fun setupRegistrationRedirect() {
+        val fullText = "New User ? Sign Up"
+        val spannable = android.text.SpannableString(fullText)
+
+        //Finding where Sign Up starts
+        val startIndex = fullText.indexOf("Sign Up")
+        val endIndex = startIndex + "Sign Up".length
+
+        //make sign UP Bold
+        spannable.setSpan(
+            android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+            startIndex, endIndex, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        binding.newUserText.text = spannable
+        binding.newUserText.setOnClickListener {
+            val intent = Intent(this, RegisterStep1Activity::class.java)
+            startActivity(intent)
+        }
     }
 }

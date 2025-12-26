@@ -133,6 +133,17 @@
             android:textSize="18sp"
             android:layout_marginTop="32dp"/>
 
+        <!-- Bottom Next -->
+        <TextView
+            android:id="@+id/newUserText"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="New User ? Sign Up"
+            android:textColor="#CCCCCC"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 </ScrollView>
 
