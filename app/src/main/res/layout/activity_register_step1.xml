@@ -144,6 +144,7 @@
 
         <!-- Bottom Next -->
         <TextView
+            android:id="@+id/LoginUser"
             android:layout_marginTop="18dp"
             android:gravity="center"
             android:text="Already have an Account? Log in"
