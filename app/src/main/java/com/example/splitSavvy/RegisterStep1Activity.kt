@@ -47,7 +47,7 @@ class RegisterStep1Activity: AppCompatActivity() {
 
     }
     private fun loginRedirect() {
-        val newUserText = findViewById<TextView>(R.id.newUserText)
+        val LoginUser = findViewById<TextView>(R.id.LoginUser)
 
         val fullText = "Already have an Account? Log in"
         val spannable = SpannableString(fullText)
@@ -61,8 +61,8 @@ class RegisterStep1Activity: AppCompatActivity() {
             endIndex,
             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        newUserText.text = spannable
-        newUserText.setOnClickListener {
+        LoginUser.text = spannable
+        LoginUser.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
