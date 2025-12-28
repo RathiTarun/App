@@ -40,14 +40,10 @@ class OtpVerificationActivity: AppCompatActivity() {
         startResendTimer()
     }
 
-    private fun setupOtpInputs(){
+    private fun setupOtpInputs() {
         otpFields.forEachIndexed { index, editText ->
+
             editText.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                    if (s?.length == 1 && index < otpFields.size - 1) {
-                        otpFields[index + 1].requestFocus()
-                    }
-                }
 
                 override fun beforeTextChanged(
                     s: CharSequence?,
@@ -55,26 +51,36 @@ class OtpVerificationActivity: AppCompatActivity() {
                     count: Int,
                     after: Int
                 ) {
-                    TODO("Not yet implemented")
+                    // do nothing
                 }
 
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    TODO("Not yet implemented")
+                override fun onTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    before: Int,
+                    count: Int
+                ) {
+                    // do nothing
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+                    if (s?.length == 1 && index < otpFields.size - 1) {
+                        otpFields[index + 1].requestFocus()
+                    }
                 }
             })
 
             editText.setOnKeyListener { _, keyCode, _ ->
-                if (keyCode == KeyEvent.KEYCODE_DEL && editText.text.isEmpty() && index>0)
-                {
+                if (keyCode == KeyEvent.KEYCODE_DEL && editText.text.isEmpty() && index > 0) {
                     otpFields[index - 1].requestFocus()
                     true
-                }else {
+                } else {
                     false
                 }
             }
-
         }
     }
+
 
     private fun startResendTimer(){
         val timerText = findViewById<TextView>(R.id.tvTimer)

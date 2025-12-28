@@ -1,12 +1,18 @@
 package com.example.splitSavvy
 
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import java.io.File
 
 
 class RegisterStep2Activity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_step2)
@@ -15,36 +21,70 @@ class RegisterStep2Activity : AppCompatActivity() {
         val btnSend = findViewById<Button>(R.id.btnSendCode)
         val phoneInput = findViewById<EditText>(R.id.etPhone)
 
-        // Simple country codes (expand later or replace with library)
         val countryCode = "+91"
 
-        btnBack.setOnClickListener {
-            finish()
-        }
+        // 🔴 FAIL FAST if draft missing
+        val draft = intent.getSerializableExtra("registration_draft")
+                as? RegistrationDraft
+            ?: error("Registration draft missing")
+
+        btnBack.setOnClickListener { finish() }
 
         btnSend.setOnClickListener {
+
             val phone = phoneInput.text.toString().trim()
 
-            // Basic validation for Indian phone numbers
             if (phone.length != 10 || !phone.all { it.isDigit() }) {
-                phoneInput.error = "Enter a valid 10-digit mobile number"
+                phoneInput.error = "Enter valid 10-digit number"
                 return@setOnClickListener
             }
 
-            // Final phone number with country code
-            val fullPhoneNumber = "$countryCode$phone"
+            draft.phone = "$countryCode$phone"
 
-            // TODO: Send OTP using Firebase / backend
+            // 🔍 FINAL VERIFICATION (THIS IS WHAT YOU WANTED)
+            require(draft.email.isNotBlank())
+            require(draft.password.isNotBlank())
+            require(draft.phone.startsWith("+91"))
+
+            // 🔥 BACKEND-READY PAYLOAD
+            logDraft(draft)
+
             Toast.makeText(
                 this,
-                "OTP sent to $fullPhoneNumber",
+                "OTP sent to ${draft.phone}",
                 Toast.LENGTH_SHORT
             ).show()
 
-            // Navigate to OTP screen (Step 3)
-            // val intent = Intent(this, OtpVerificationActivity::class.java)
-            // intent.putExtra("phone_number", fullPhoneNumber)
-            // startActivity(intent)
+            dumpDraftToExternal(this, draft)
+
+
+            // Next step later
+            val intent = Intent(this, OtpVerificationActivity::class.java)
+            startActivity(intent)
         }
     }
+
+    private fun logDraft(draft: RegistrationDraft) {
+        // Debug only
+        android.util.Log.d("REGISTER_PAYLOAD", draft.toString())
+    }
+
+    fun dumpDraftToExternal(context: Context, draft: RegistrationDraft) {
+
+        Log.d("DUMP_CHECK", "dumpDraftToExternal() CALLED")
+
+        val file = File(
+            context.getExternalFilesDir(null),
+            "registration_debug.json"
+        )
+
+        val json = Gson().toJson(draft)
+        file.writeText(json)
+
+        Log.d("DUMP_CHECK", "FILE WRITTEN")
+        Log.d("DUMP_CHECK", "PATH = ${file.absolutePath}")
+        Log.d("DUMP_CHECK", "CONTENT = $json")
+    }
+
+
 }
