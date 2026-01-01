@@ -1,4 +1,4 @@
-package com.example.splitSavvy
+package com.example.splitSavvy.UI
 
 
 import android.content.Context
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.splitSavvy.R
+import com.example.splitSavvy.model.RegistrationDraft
 import com.google.gson.Gson
 import java.io.File
 
@@ -66,7 +68,7 @@ class RegisterStep2Activity : AppCompatActivity() {
 
     private fun logDraft(draft: RegistrationDraft) {
         // Debug only
-        android.util.Log.d("REGISTER_PAYLOAD", draft.toString())
+        Log.d("REGISTER_PAYLOAD", draft.toString())
     }
 
     fun dumpDraftToExternal(context: Context, draft: RegistrationDraft) {

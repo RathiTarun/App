@@ -1,4 +1,4 @@
-package com.example.splitSavvy
+package com.example.splitSavvy.UI
 
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.KeyEvent
+import com.example.splitSavvy.R
 
 
 class OtpVerificationActivity: AppCompatActivity() {

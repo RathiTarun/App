@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SplitSavvy">
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegisterStep1Activity"/>
-        <activity android:name=".RegisterStep2Activity"/>
-        <activity android:name=".OtpVerificationActivity"/>
+        <activity android:name=".UI.LoginActivity"/>
+        <activity android:name=".UI.RegisterStep1Activity"/>
+        <activity android:name=".UI.RegisterStep2Activity"/>
+        <activity android:name=".UI.OtpVerificationActivity"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".UI.WelcomeActivity"/>
         <activity
-            android:name=".SplashActivity"
+            android:name=".UI.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SplitSavvy">

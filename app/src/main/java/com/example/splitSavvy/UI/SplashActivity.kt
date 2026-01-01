@@ -1,4 +1,4 @@
-package com.example.splitSavvy
+package com.example.splitSavvy.UI
 
 import android.content.Intent
 import android.graphics.RenderEffect
@@ -10,6 +10,7 @@ import android.os.Looper
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.splitSavvy.R
 
 class SplashActivity : AppCompatActivity() {
 

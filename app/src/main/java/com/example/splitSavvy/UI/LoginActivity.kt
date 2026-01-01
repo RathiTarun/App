@@ -1,9 +1,17 @@
-package com.example.splitSavvy
+package com.example.splitSavvy.UI
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.InputType
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.StyleSpan
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.splitSavvy.R
 import com.example.splitSavvy.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -66,11 +74,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun toast(msg: String) {
-        android.widget.Toast.makeText(this, msg, android.widget.Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
-    private fun shakeViews(vararg views: android.view.View) {
-        val shake = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.shake)
+    private fun shakeViews(vararg views: View) {
+        val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
 
         views.forEach { it.startAnimation(shake) }
     }
@@ -87,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupRegistrationRedirect() {
         val fullText = "New User ? Sign Up"
-        val spannable = android.text.SpannableString(fullText)
+        val spannable = SpannableString(fullText)
 
         //Finding where Sign Up starts
         val startIndex = fullText.indexOf("Sign Up")
@@ -95,8 +103,8 @@ class LoginActivity : AppCompatActivity() {
 
         //make sign UP Bold
         spannable.setSpan(
-            android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
-            startIndex, endIndex, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            StyleSpan(Typeface.BOLD),
+            startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         binding.newUserText.text = spannable
         binding.newUserText.setOnClickListener {

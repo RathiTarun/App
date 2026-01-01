@@ -1,5 +1,4 @@
-
-package com.example.splitSavvy
+package com.example.splitSavvy.model
 
 import java.io.Serializable
 
