@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         setupRegistrationRedirect()
     }
 
+    // ---------------- PASSWORD TOGGLE ----------------
     private fun setupPasswordToggle() {
         binding.ivTogglePassword.setOnClickListener {
             isPasswordVisible = !isPasswordVisible
@@ -47,39 +48,67 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // ---------------- LOGIN FLOW ----------------
     private fun setupLogin() {
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
 
-            if (email.isEmpty() || password.isEmpty()) {
-                toast("Please enter email & password")
+            clearInputError()
+
+            val identifier = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+
+            if (identifier.isEmpty() || password.isEmpty()) {
+                toast("Please enter username/email & password")
+                showInputError()
                 return@setOnClickListener
             }
 
-            if (isValidUser(email, password)) {
-                toast("Login Succesful")
-            } else {
-                toast("Invalid email or password")
-                shakeViews(binding.etEmail, binding.etPassword)
-                showInputError()
-
-
-            }
+            performLogin(identifier, password)
         }
     }
 
-    private fun isValidUser(email: String, password: String): Boolean {
-        return email == "test@gmail.com" && password == "test"
+    // ---------------- API READY METHOD ----------------
+    private fun performLogin(identifier: String, password: String) {
+
+        // 🔌 BACKEND HOOK (replace this whole block later)
+        if (mockLogin(identifier, password)) {
+            toast("Login Successful")
+
+            // TODO(API): Navigate after real token is received
+            // startActivity(Intent(this, HomeActivity::class.java))
+            // finish()
+
+        } else {
+            toast("Invalid username/email or password")
+            shakeViews(binding.EmailContainer, binding.PasswordContainer)
+            showInputError()
+        }
+
+        // 🔌 REAL API WILL GO HERE LATER
+        /*
+        authApi.login(LoginRequest(identifier, password))
+            .enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(...) { }
+                override fun onFailure(...) { }
+            })
+        */
     }
 
+    // ---------------- MOCK LOGIN ----------------
+    private fun mockLogin(identifier: String, password: String): Boolean {
+        return (
+                (identifier == "test@gmail.com" || identifier == "testuser")
+                        && password == "test"
+                )
+    }
+
+    // ---------------- UI HELPERS ----------------
     private fun toast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun shakeViews(vararg views: View) {
         val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
-
         views.forEach { it.startAnimation(shake) }
     }
 
@@ -89,27 +118,26 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun clearInputError() {
-        binding.etEmail.setBackgroundResource(R.drawable.bg_input)
-        binding.etPassword.setBackgroundResource(R.drawable.bg_input)
+        binding.EmailContainer.setBackgroundResource(R.drawable.bg_input)
+        binding.PasswordContainer.setBackgroundResource(R.drawable.bg_input)
     }
 
+    // ---------------- SIGN UP REDIRECT ----------------
     private fun setupRegistrationRedirect() {
         val fullText = "New User ? Sign Up"
         val spannable = SpannableString(fullText)
 
-        //Finding where Sign Up starts
         val startIndex = fullText.indexOf("Sign Up")
         val endIndex = startIndex + "Sign Up".length
 
-        //make sign UP Bold
         spannable.setSpan(
             StyleSpan(Typeface.BOLD),
-            startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         binding.newUserText.text = spannable
         binding.newUserText.setOnClickListener {
-            val intent = Intent(this, RegisterStep1Activity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterStep1Activity::class.java))
         }
     }
 }
