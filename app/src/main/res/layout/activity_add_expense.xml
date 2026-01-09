@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_add_expense_gradient">
+
+    <!-- CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="120dp"
+        android:fillViewport="true">
+
+        <!-- MUST be wrap_content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- TOP BAR -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="12dp">
+
+                <ImageView
+                    android:id="@+id/btnClose"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_close"
+                    android:tint="@android:color/white"/>
+
+                <TextView
+                    android:text="New Expense"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/btnReset"
+                    android:text="Reset"
+                    android:textColor="#7C2BEE"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- AMOUNT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="32dp">
+
+                <TextView
+                    android:id="@+id/tvCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:textColor="#A992C9"/>
+
+                <EditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="0.00"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#A992C9"
+                    android:textSize="48sp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"/>
+            </LinearLayout>
+
+            <!-- CURRENCY CHIP -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INR"
+                android:layout_gravity="center"
+                android:textColor="#A992C9"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="6dp"
+                android:background="@drawable/bg_input_dark"/>
+
+            <!-- TITLE INPUT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expense Title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#A992C9"
+                android:paddingTop="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_input_dark"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_receipt"
+                    android:tint="#7C2BEE"/>
+
+                <EditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:background="@null"
+                    android:hint="What is this for?"
+                    android:textColorHint="#A992C9"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+            <!-- Paid By -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paid by"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#A992C9"
+                android:paddingTop="24dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutPaidBy"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_input_dark"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_avatar"
+                    android:background="@drawable/bg_circle"
+                    android:padding="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvPaidBy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="You"
+                    android:textColor="#A992C9"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_down"
+                    android:tint="#A992C9"/>
+            </LinearLayout>
+            <!-- Split Between Section-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Split Between"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#A992C9"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Friends"
+                    android:textSize="10sp"
+                    android:textColor="#A992C9"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/containerSplitFriends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_dark"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"/>
+
+            <!-- DATE & TIME -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp">
+
+                <!-- DATE -->
+                <LinearLayout
+                    android:id="@+id/layoutDate"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_input_dark"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="#A992C9"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:text="10/24/2023"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="8dp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+                </LinearLayout>
+
+                <!-- TIME -->
+                <LinearLayout
+                    android:id="@+id/layoutTime"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/bg_input_dark"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_time"
+                        android:tint="#A992C9"/>
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:text="08:00 PM"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="8dp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+            <!-- NOTES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#A992C9"
+                android:paddingTop="24dp"/>
+
+            <EditText
+                android:id="@+id/etNotes"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_input_dark"
+                android:hint="Add a note..."
+                android:textColor="@android:color/white"
+                android:textColorHint="#A992C9"
+                android:padding="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- FIXED BOTTOM BUTTON -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnAddExpense"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Add Expense"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_primary_button"/>
+    </LinearLayout>
+
+</FrameLayout>
