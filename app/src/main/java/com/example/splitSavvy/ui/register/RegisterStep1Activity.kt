@@ -1,4 +1,4 @@
-package com.example.splitSavvy.UI
+package com.example.splitSavvy.ui.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
 import com.example.splitSavvy.model.RegistrationDraft
+import com.example.splitSavvy.ui.login.LoginActivity
 
 class RegisterStep1Activity: AppCompatActivity() {
     private var passwordVisible = false

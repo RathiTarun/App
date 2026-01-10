@@ -1,4 +1,4 @@
-package com.example.splitSavvy.UI
+package com.example.splitSavvy.ui
 
 import android.os.Bundle
 import android.os.CountDownTimer

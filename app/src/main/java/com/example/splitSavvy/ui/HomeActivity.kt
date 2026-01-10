@@ -1,4 +1,4 @@
-package com.example.splitSavvy.UI
+package com.example.splitSavvy.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
 import com.example.splitSavvy.model.Transaction
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlin.math.abs
 
 class HomeActivity : AppCompatActivity(){
 
@@ -74,7 +75,7 @@ class HomeActivity : AppCompatActivity(){
 
     private fun formatAmount(value: Double): String{
         val sign = if(value>=0) "+" else "-"
-        return "$sign$${kotlin.math.abs(value)}"
+        return "$sign$${abs(value)}"
     }
 
 }

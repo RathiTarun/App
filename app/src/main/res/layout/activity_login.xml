@@ -31,13 +31,14 @@
             android:layout_marginTop="8dp" />
         <!-- Email Field and UserName-->
         <TextView
+            android:id="@+id/tvIdentifierLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username or Email"
+            android:text="Username or Phone No."
             android:textColor="@android:color/white"
             android:layout_marginTop="32dp" />
 
-        <!-- Email Field-->
+        <!-- Input Username or phone no.-->
         <LinearLayout
             android:id="@+id/EmailContainer"
             android:layout_width="match_parent"
@@ -52,6 +53,16 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:tint="#9E9E9E" />
+            <TextView
+                android:id="@+id/tvCountryCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -59,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:hint="Enter username or email"
+                android:hint="Enter username or phone no."
                 android:textColor="@android:color/white"
                 android:inputType="text"
                 android:textColorHint="#9E9E9E"

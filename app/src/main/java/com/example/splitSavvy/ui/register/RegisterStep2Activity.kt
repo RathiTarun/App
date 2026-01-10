@@ -1,4 +1,4 @@
-package com.example.splitSavvy.UI
+package com.example.splitSavvy.ui.register
 
 
 import android.content.Context
@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
 import com.example.splitSavvy.model.RegistrationDraft
+import com.example.splitSavvy.ui.OtpVerificationActivity
 import com.google.gson.Gson
 import java.io.File
 
