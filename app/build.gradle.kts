@@ -9,6 +9,11 @@ android {
     compileSdk {
         version = release(36)
     }
+    buildFeatures {
+        compose = true
+        viewBinding=true
+        buildConfig=true
+    }
 
     defaultConfig {
         applicationId = "com.example.splitSavvy"
@@ -18,6 +23,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            "\"${project.findProperty("BASE_URL")}\""
+        )
     }
 
     buildTypes {
@@ -35,10 +45,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
-        viewBinding=true
     }
 }
 
@@ -63,4 +69,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation("com.google.code.gson:gson:2.10.1")
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+// OkHttp (network layer)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 }

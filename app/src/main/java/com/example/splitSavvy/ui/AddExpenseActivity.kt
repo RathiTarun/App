@@ -1,4 +1,4 @@
-package com.example.splitsavvy.ui.addexpense
+package com.example.splitSavvy.ui/*package com.example.splitsavvy.ui.addexpense
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -131,3 +131,4 @@ class AddExpenseActivity : AppCompatActivity() {
         finish()
     }
 }
+*/
