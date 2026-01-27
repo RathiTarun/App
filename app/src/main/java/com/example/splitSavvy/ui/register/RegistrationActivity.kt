@@ -61,8 +61,8 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupRegister(){
-        binding.btnRegister.setOnClickListener{
+    private fun setupRegister() {
+        binding.btnRegister.setOnClickListener {
 
             val firstName = binding.etFirstName.text.toString().trim()
             val lastName = binding.etLastName.text.toString().trim()
@@ -70,15 +70,38 @@ class RegistrationActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            if(firstName.isEmpty()|| lastName.isEmpty()||
-                userName.isEmpty() || email.isEmpty() || password.isEmpty()){
-                toast("please fill all the fields")
+            if (firstName.isEmpty() || lastName.isEmpty() ||
+                userName.isEmpty() || email.isEmpty() || password.isEmpty()
+            ) {
+                toast("Please fill all the fields")
                 return@setOnClickListener
             }
 
-            registerUser(firstName,lastName,userName,email,password)
+            if (!isValidUsername(userName)) {
+                toast("Username must be 8–16 chars, start with a letter, no consecutive _ or -")
+                return@setOnClickListener
+            }
+
+            if (!isValidEmail(email)) {
+                toast("Enter a valid email address")
+                return@setOnClickListener
+            }
+
+            registerUser(firstName, lastName, userName, email, password)
         }
     }
+
+
+    private fun isValidUsername(username: String): Boolean {
+        val regex = Regex("^[A-Za-z](?!.*[_-]{2})[A-Za-z0-9_-]{7,15}$")
+        return regex.matches(username)
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        val regex = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
+        return regex.matches(email)
+    }
+
 
     private fun registerUser(
         firstName:String,
