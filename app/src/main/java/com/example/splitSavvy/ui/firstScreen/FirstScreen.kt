@@ -1,4 +1,4 @@
-package com.example.splitSavvy.ui
+package com.example.splitSavvy.ui.firstScreen
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
 import com.example.splitSavvy.ui.login.LoginActivity
-import com.example.splitSavvy.ui.register.RegisterStep1Activity
+import com.example.splitSavvy.ui.register.RegistrationActivity
 
-class WelcomeActivity: AppCompatActivity() {
+class FirstScreen: AppCompatActivity() {
 
     private lateinit var loginButton: Button
     private lateinit var createAccountButton: Button
@@ -26,7 +26,7 @@ class WelcomeActivity: AppCompatActivity() {
         }
 
         createAccountButton.setOnClickListener {
-            val intent = Intent(this, RegisterStep1Activity::class.java)
+            val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
 
 

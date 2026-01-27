@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
+import com.example.splitSavvy.ui.firstScreen.FirstScreen
 
 class SplashActivity : AppCompatActivity() {
 
@@ -36,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
         //delay for 2 seconds, then go to LoginActivity
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, WelcomeActivity::class.java))
+            startActivity(Intent(this, FirstScreen::class.java))
             finish()
         }, 2000)
         }

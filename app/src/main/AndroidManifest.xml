@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -12,11 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SplitSavvy">
         <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.register.RegisterStep1Activity"/>
-        <activity android:name=".ui.register.RegisterStep2Activity"/>
+        <activity android:name=".ui.register.RegistrationActivity"
+            android:exported="false"/>
         <activity android:name=".ui.OtpVerificationActivity"/>
-        <activity android:name=".ui.WelcomeActivity"/>
+        <activity android:name=".ui.welcome.WelcomeActivity"/>
+        <activity android:name=".ui.firstScreen.FirstScreen"/>
         <activity android:name=".ui.HomeActivity"/>
+
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true"

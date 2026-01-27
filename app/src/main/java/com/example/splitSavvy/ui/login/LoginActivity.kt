@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
 import com.example.splitSavvy.core.validation.Validator
 import com.example.splitSavvy.databinding.ActivityLoginBinding
-import com.example.splitSavvy.ui.register.RegisterStep1Activity
+import com.example.splitSavvy.ui.register.RegistrationActivity
 import com.example.splitSavvy.core.ui.toast
 import com.example.splitSavvy.core.ui.shake
 import com.example.splitSavvy.data.remote.api.ApiClient
@@ -146,7 +146,7 @@ class LoginActivity : AppCompatActivity() {
 
             binding.newUserText.text = spannable
             binding.newUserText.setOnClickListener {
-                startActivity(Intent(this, RegisterStep1Activity::class.java))
+                startActivity(Intent(this, RegistrationActivity::class.java))
             }
         }
 
