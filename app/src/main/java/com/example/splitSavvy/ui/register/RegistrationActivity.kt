@@ -102,7 +102,7 @@ class RegistrationActivity : AppCompatActivity() {
         return regex.matches(email)
     }
 
-
+    
     private fun registerUser(
         firstName:String,
         lastName: String,
