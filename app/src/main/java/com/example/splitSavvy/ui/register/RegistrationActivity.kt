@@ -5,7 +5,10 @@ import com.example.splitSavvy.data.remote.api.ApiClient
 import android.os.PersistableBundle
 import android.text.InputType
 import com.example.splitSavvy.R
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.splitSavvy.core.ui.toast
 import com.example.splitSavvy.data.remote.dto.RegisterRequest
 import com.example.splitSavvy.data.remote.dto.RegisterResponse
@@ -23,9 +26,14 @@ class RegistrationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         setupPasswordToggle()
         setupRegister()
