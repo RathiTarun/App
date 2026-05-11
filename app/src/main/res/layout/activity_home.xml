@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login_gradient">
@@ -68,7 +69,7 @@
                         android:id="@+id/tvYouOwe"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        android:teextColor="#EEF4444"/>
+                        android:textColor="@color/accent_red"/>
 
                 </LinearLayout>
                 <!-- OWED TO YOU-->
@@ -80,11 +81,52 @@
                     android:background="@drawable/bg_card"
                     android:padding="16dp">
 
-                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Owed to You"
+                        android:textColor="#9CA3AF"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvOwedToYou"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent_green"/>
+
                 </LinearLayout>
 
             </LinearLayout>
+
+            <!-- Recent Activity Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recent Activity"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="20dp"/>
+
+            <LinearLayout
+                android:id="@+id/activityContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"/>
+
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/primary"
+        app:tint="@android:color/white"/>
 
 </FrameLayout>

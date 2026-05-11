@@ -1,18 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.example.splitSavvy"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
+
     buildFeatures {
         compose = true
-        viewBinding=true
-        buildConfig=true
+        viewBinding = true
+        buildConfig = true
     }
 
     defaultConfig {
@@ -43,8 +41,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
     }
 }
 
