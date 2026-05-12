@@ -2,311 +2,435 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@drawable/bg_add_expense_gradient">
 
     <!-- CONTENT -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="120dp"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingBottom="120dp">
 
-        <!-- MUST be wrap_content -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
             <!-- TOP BAR -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp">
+                android:orientation="horizontal"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
 
-                <ImageView
-                    android:id="@+id/btnClose"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_close"
-                    android:tint="@android:color/white"/>
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/btnClose"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_close"
+                        android:tint="@android:color/white" />
+                </FrameLayout>
 
                 <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:text="New Expense"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="12dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/btnReset"
-                    android:text="Reset"
-                    android:textColor="#7C2BEE"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Reset"
+                    android:textColor="#9333EA"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- AMOUNT -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="center|bottom"
                 android:orientation="horizontal"
-                android:paddingVertical="32dp">
+                android:paddingTop="40dp"
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/tvCurrency"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:text="₹"
-                    android:textSize="36sp"
+                    android:textColor="#A992C9"
+                    android:textSize="52sp"
                     android:textStyle="bold"
-                    android:textColor="#A992C9"/>
+                    android:fontFamily="sans-serif-medium" />
 
                 <EditText
                     android:id="@+id/etAmount"
-                    android:layout_width="200dp"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:hint="0.00"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#A992C9"
-                    android:textSize="48sp"
+                    android:backgroundTint="@android:color/transparent"
+                    android:fontFamily="sans-serif-medium"
                     android:gravity="center"
-                    android:inputType="numberDecimal"/>
+                    android:hint="0.00"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#6D6480"
+                    android:textSize="72sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- CURRENCY CHIP -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="INR"
                 android:layout_gravity="center"
-                android:textColor="#A992C9"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="6dp"
-                android:background="@drawable/bg_input_dark"/>
+                android:layout_marginTop="-8dp"
+                android:background="@drawable/bg_currency_chip"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:text="INR"
+                android:textColor="#B79CE6"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-            <!-- TITLE INPUT -->
+            <!-- EXPENSE TITLE -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Expense Title"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_marginTop="36dp"
+                android:letterSpacing="0.08"
+                android:text="EXPENSE TITLE"
+                android:textAllCaps="true"
                 android:textColor="#A992C9"
-                android:paddingTop="24dp"/>
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/bg_input_dark"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingHorizontal="16dp">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_receipt"
-                    android:tint="#7C2BEE"/>
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_circle">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_receipt"
+                        android:tint="#9333EA" />
+                </FrameLayout>
 
                 <EditText
                     android:id="@+id/etTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="12dp"
                     android:background="@null"
                     android:hint="What is this for?"
-                    android:textColorHint="#A992C9"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#8E7AAE"
+                    android:textSize="18sp" />
             </LinearLayout>
-            <!-- Paid By -->
+
+            <!-- PAID BY -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Paid by"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_marginTop="28dp"
+                android:letterSpacing="0.08"
+                android:text="PAID BY"
+                android:textAllCaps="true"
                 android:textColor="#A992C9"
-                android:paddingTop="24dp"/>
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/layoutPaidBy"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/bg_input_dark"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="16dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_avatar"
-                    android:background="@drawable/bg_circle"
-                    android:padding="4dp"/>
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_circle"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_avatar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:background="@drawable/bg_you_badge"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="2dp"
+                        android:text="YOU"
+                        android:textColor="@android:color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/tvPaidBy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
                     android:layout_weight="1"
                     android:text="You"
-                    android:textColor="#A992C9"
-                    android:textSize="16sp" />
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_arrow_down"
-                    android:tint="#A992C9"/>
+                    android:tint="#A992C9" />
             </LinearLayout>
-            <!-- Split Between Section-->
+
+            <!-- SPLIT HEADER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="24dp"
+                android:layout_marginTop="28dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:text="Split Between"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#A992C9"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.08"
+                    android:text="SPLIT WITH"
+                    android:textAllCaps="true"
+                    android:textColor="#A992C9"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Select Friends"
-                    android:textSize="10sp"
-                    android:textColor="#A992C9"/>
+                    android:text="SELECT FRIENDS"
+                    android:textColor="#A992C9"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
+            <!-- FRIENDS CONTAINER -->
             <LinearLayout
                 android:id="@+id/containerSplitFriends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/bg_input_dark"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp"/>
+                android:orientation="vertical" />
 
-            <!-- DATE & TIME -->
+            <!-- ADD FRIENDS -->
+            <TextView
+                android:id="@+id/btnAddFriends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_dark"
+                android:gravity="center"
+                android:padding="18dp"
+                android:text="+ ADD MORE FRIENDS"
+                android:textColor="#9333EA"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- DATE TIME LABELS -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DATE"
+                    android:textColor="#A992C9"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TIME"
+                    android:textColor="#A992C9"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- DATE TIME -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
 
                 <!-- DATE -->
                 <LinearLayout
                     android:id="@+id/layoutDate"
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_input_dark"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_calendar"
-                        android:tint="#A992C9"/>
+                        android:tint="#A992C9" />
 
                     <TextView
                         android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:text="10/24/2023"
                         android:textColor="@android:color/white"
-                        android:layout_marginStart="8dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <!-- TIME -->
                 <LinearLayout
                     android:id="@+id/layoutTime"
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
-                    android:layout_weight="1"
+                    android:layout_height="64dp"
                     android:layout_marginStart="12dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_input_dark"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_time"
-                        android:tint="#A992C9"/>
+                        android:tint="#A992C9" />
 
                     <TextView
                         android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:text="08:00 PM"
                         android:textColor="@android:color/white"
-                        android:layout_marginStart="8dp"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"/>
+                        android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
-
-
-
-
 
             <!-- NOTES -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Notes"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:layout_marginTop="28dp"
+                android:letterSpacing="0.08"
+                android:text="NOTES"
+                android:textAllCaps="true"
                 android:textColor="#A992C9"
-                android:paddingTop="24dp"/>
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etNotes"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="14dp"
-                android:background="@drawable/bg_input_dark"
-                android:hint="Add a note..."
-                android:textColor="@android:color/white"
-                android:textColorHint="#A992C9"
-                android:padding="16dp"/>
+                android:background="@drawable/bg_input_dark">
+
+                <EditText
+                    android:id="@+id/etNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="Add a note (optional)..."
+                    android:padding="16dp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#8E7AAE"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_edit"
+                    android:tint="#8E7AAE" />
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
         </LinearLayout>
     </ScrollView>
 
-    <!-- FIXED BOTTOM BUTTON -->
+    <!-- BOTTOM FADE -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_fade" />
+
+    <!-- BUTTON -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:padding="16dp">
+        android:padding="20dp">
 
         <Button
             android:id="@+id/btnAddExpense"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_primary_button"
             android:text="Add Expense"
-            android:textStyle="bold"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:background="@drawable/bg_primary_button"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </FrameLayout>
