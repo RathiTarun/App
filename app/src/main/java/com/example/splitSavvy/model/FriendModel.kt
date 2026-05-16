@@ -1,10 +1,12 @@
-package com.example.splitSavvy.ui.expense
+package com.example.splitSavvy.model
 
-data class SplitFriend(
+data class FriendModel(
 
+    val id: Int,
     val name: String,
 
     val username: String,
+    val email: String,
 
     val avatar: Int,
 

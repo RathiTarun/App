@@ -10,7 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.splitSavvy.R
+import com.example.splitSavvy.data.mock.MockFriendData
 import com.example.splitSavvy.databinding.ActivityAddExpenseBinding
+import com.example.splitSavvy.model.FriendModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -19,7 +21,7 @@ class AddExpenseActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddExpenseBinding
 
-    private val selectedFriends = mutableListOf<SplitFriend>()
+    private val selectedFriends = mutableListOf<FriendModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,7 @@ class AddExpenseActivity : AppCompatActivity() {
 
     private fun setupFriends() {
 
-        val friends = MockFriends.getFriends()
+        val friends = MockFriendData.getFriends()
 
         friends.forEach { friend ->
 
