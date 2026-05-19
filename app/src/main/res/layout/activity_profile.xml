@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- TOP BAR -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_edit"
+                android:tint="@android:color/white"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <!-- PROFILE IMAGE -->
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_avatar"
+                android:background="@drawable/bg_profile_image"
+                android:padding="6dp"/>
+
+            <ImageView
+                android:id="@+id/btnCamera"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="bottom|end"
+                android:background="@drawable/bg_round_purple"
+                android:padding="12dp"
+                android:src="@drawable/ic_camera"
+                android:tint="@android:color/white"/>
+        </FrameLayout>
+
+        <!-- NAME -->
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alex Johnson"
+            android:textColor="@android:color/white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"/>
+
+        <!-- USERNAME -->
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/@alexj_splits"
+            android:textColor="#A992C9"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"/>
+
+        <!-- DASHBOARD CARD -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/bg_profile_card"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PERSONAL DASHBOARD"
+                        android:textColor="#A992C9"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$120.50"
+                        android:textColor="@android:color/white"
+                        android:textSize="42sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="12dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amount owed to you"
+                        android:textColor="#A992C9"
+                        android:textSize="18sp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/bg_round_purple"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_dashboard"
+                        android:tint="#7C2BEE"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- DIVIDER -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:background="#3D2A58"/>
+
+            <!-- BOTTOM ROW -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- AVATARS -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_avatar"/>
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="-8dp"
+                        android:src="@drawable/ic_avatar"/>
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="-8dp"
+                        android:src="@drawable/ic_avatar"/>
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="-8dp"
+                        android:background="@drawable/bg_round_icon"
+                        android:gravity="center"
+                        android:text="+2"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <!-- BREAKDOWN BUTTON -->
+
+                <Button
+                    android:id="@+id/btnBreakdown"
+                    android:layout_width="150dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_primary_button"
+                    android:text="Breakdown →"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- SETTINGS -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="@android:color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- RECYCLER VIEW -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+        <!-- LOGOUT -->
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_logout_button"
+            android:text="Log Out"
+            android:textAllCaps="false"
+            android:textColor="#FF6B81"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <!-- VERSION -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 2.4.0 (Build 1024)"
+            android:textColor="#6F5A8D"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+
+</ScrollView>

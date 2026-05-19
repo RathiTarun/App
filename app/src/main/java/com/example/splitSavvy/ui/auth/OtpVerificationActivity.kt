@@ -1,17 +1,20 @@
-package com.example.splitSavvy.ui
+package com.example.splitSavvy.ui.auth
 
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.*
+import android.view.KeyEvent
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.view.KeyEvent
 import com.example.splitSavvy.R
-
 
 class OtpVerificationActivity: AppCompatActivity() {
     private lateinit var otpFields:List<EditText>
@@ -45,7 +48,7 @@ class OtpVerificationActivity: AppCompatActivity() {
             Toast.makeText(this, "Enter complete OTP", Toast.LENGTH_SHORT).show()
             return@setOnClickListener
         }
-        Toast.makeText(this,"OTP verified",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"OTP verified", Toast.LENGTH_SHORT).show()
     }
         startResendTimer()
     }

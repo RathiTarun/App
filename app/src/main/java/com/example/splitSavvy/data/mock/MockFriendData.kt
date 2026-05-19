@@ -5,9 +5,9 @@ import com.example.splitSavvy.model.FriendModel
 
 object MockFriendData {
 
-    fun getFriends(): List<FriendModel> {
+    fun getFriends(): MutableList<FriendModel> {
 
-        return listOf(
+        return mutableListOf(
 
             FriendModel(
                 id=1,

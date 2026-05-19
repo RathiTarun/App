@@ -1,4 +1,4 @@
-package com.example.splitSavvy.ui
+package com.example.splitSavvy.ui.splash
 
 import android.content.Intent
 import android.graphics.RenderEffect
